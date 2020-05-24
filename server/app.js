@@ -1,8 +1,8 @@
 const express = require("express");
-// const graphql = require('graphql')
-// const graphqlHTTP = require('express-graphql');
+const graphqlHTTP = require('express-graphql');
 const mongoose = require("mongoose");
 const cors = require("cors");
+const schema = require('./schema/schema')
 require("dotenv/config");
 
 const app = express();
@@ -18,11 +18,11 @@ mongoose.connect(
   () => console.log("connected to mongodb 🥭")
 );
 
-// app.use('/graphql', graphqlHTTP({
-//   // schema will tell express-graphql about the data (data-types, properties, relationships) & how the graph will look
-//   schema: schema, // with ES6 could only put schema as the name are the same
-//   graphiql: true
-// }))
+// for graphiql
+app.use('/graphql', graphqlHTTP({
+  schema: schema, 
+  graphiql: true
+}))
 
 app.listen(process.env.PORT, () =>
   console.log(`listening to port`, process.env.PORT)
