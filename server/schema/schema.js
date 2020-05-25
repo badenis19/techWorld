@@ -66,3 +66,21 @@ module.exports = new GraphQLSchema({
   query: RootQuery,
   mutation: Mutation
 })
+
+// Mutation ex:
+// mutation {
+//     addProduct(name: "Mouse", price: 9, img_url: "https://images.unsplash.com/flagged/photo-1561023367-4431103a484f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80"){
+//       name
+//     }
+//   }
+  
+
+// Query ex:
+//   {
+//     products {
+//       name
+//       img_url
+//       price
+//     }
+//   }
+  
