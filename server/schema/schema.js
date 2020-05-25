@@ -7,7 +7,8 @@ const {
   GraphQLInt,
   GraphQLID,
   GraphQLList,
-  GraphQLSchema
+  GraphQLSchema,
+  GraphQLFloat
 } = graphql;
 
 
@@ -16,7 +17,7 @@ const ProductType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
-    price: { type: GraphQLInt },
+    price: { type: GraphQLFloat },
     img_url: { type: GraphQLString }
   })
 });
@@ -47,7 +48,7 @@ const Mutation = new GraphQLObjectType({
       type: ProductType,
       args: {
         name: { type: GraphQLString },
-        price: { type: GraphQLInt },
+        price: { type: GraphQLFloat },
         img_url: { type: GraphQLString }
       },
       resolve(parents, args) {
@@ -75,7 +76,7 @@ module.exports = new GraphQLSchema({
 //   }
   
 
-// Query ex:
+// Query ex :
 //   {
 //     products {
 //       name
