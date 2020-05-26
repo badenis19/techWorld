@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { graphql } from './node_modules/react-apollo'; // To bind Apollo with React Component
+import { graphql } from 'react-apollo'; // To bind Apollo with React Component
 
 /* Queries */
 import { getProductsQuery } from '../queries/queries'
