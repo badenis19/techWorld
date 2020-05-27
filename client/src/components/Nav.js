@@ -1,14 +1,28 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom'
 
 const Nav = () => {
 
-  return (
-    <div>
-      <h1>Nav</h1>
-    </div>
-  )
+let itemsInBasket = null;
 
+  return (
+    <nav>
+      <ul>
+        <Link to="/">
+          <li>Home</li>
+        </Link>
+
+        <Link to="/basket">
+        <li>Basket {itemsInBasket}</li>
+        </Link>
+
+        <Link to="/contact">
+          <li>Contact</li>
+        </Link>
+
+      </ul>
+    </nav>
+  )
 }
 
 export default Nav;
