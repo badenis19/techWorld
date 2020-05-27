@@ -3,6 +3,9 @@ import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo'; // binds apollo to React
 // import { getProductQuery, getProductsQuery  } from './queries/queries';
 import ProductList from './components/ProductList';
+import Nav from './components/Nav';
+import Basket from './components/Basket';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 
 // Apollo Client Setup 
@@ -13,11 +16,17 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <ApolloProvider client={client}>
-      <div className="App">
-        <ProductList />
-      </div>
-    </ApolloProvider>
+    
+      <ApolloProvider client={client}>
+
+        <div className="App">
+          <Nav />
+          <Basket />
+          <ProductList />
+        </div>
+
+      </ApolloProvider>
+    
   );
 }
 
