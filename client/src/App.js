@@ -11,7 +11,7 @@ import Contact from './components/Contact';
 import Banner from './components/Banner';
 
 
-// Apollo Client Setup 
+// Apollo Client Setup
 const client = new ApolloClient({
   uri: "http://localhost:3001/graphql" //apollo knows we will be making requests to this end-point from our application
 })
@@ -32,9 +32,9 @@ const App = () => {
     console.log(">>>>>", productsInBasket)
   }
 
-  const clearBasket = () => {
-    localStorage.removeItem("productsInBasket")
-  }
+  // const clearBasket = () => {
+  //   (setProducts([]))
+  // }
 
 
   return (
@@ -46,6 +46,8 @@ const App = () => {
           <Nav basketSize={productsInBasket.length} />
 
           <Banner />
+
+          <button onClick={() => setProducts([])}>clear</button>
 
           {/* <ProductList addProduct={addProduct} /> */}
 
