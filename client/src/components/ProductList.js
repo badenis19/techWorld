@@ -8,9 +8,14 @@ import { getProductsQuery } from '../queries/queries'
 
 class ProductList extends Component {
 
+  handleClick(dataa){
+    this.props.addProduct(dataa)
+    // console.log(dataa); 
+  }
+
   displayProducts() {
     let data = this.props.data;
-
+ 
     if (data.loading) {
       return (<p>Loading Products...</p>)
     } else {
@@ -20,12 +25,13 @@ class ProductList extends Component {
             <p key={product.id}>{product.name}</p>
             <p key={product.id}>{product.price}</p>
             <img key={product.id} src={product.img_url} alt="product" />
-            <button>Add</button>
+            <button onClick={() => this.handleClick(product)}>Add</button>
           </div>
         )
       })
     }
   }
+
 
   render() {
     console.log(this.props)

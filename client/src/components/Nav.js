@@ -1,8 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-const Nav = () => {
-
+const Nav = (props) => {
+  
 let itemsInBasket = null;
 
   return (
@@ -13,7 +13,7 @@ let itemsInBasket = null;
         </Link>
 
         <Link to="/basket">
-        <li>Basket {itemsInBasket}</li>
+        <li>Basket {props.basketSize.length}</li>
         </Link>
 
         <Link to="/contact">
