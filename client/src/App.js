@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo'; // binds apollo to React
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -18,19 +18,22 @@ const client = new ApolloClient({
 
 const App = () => {
 
-  const [basketSize, setBasketSize] = useState([]);
+  const [productsInBasket, setProducts] = useState(() => {
+    const localData = localStorage.getItem("productsInBasket");
+    return localData ? JSON.parse(localData) : [];
+  });
 
-  const [products, setProducts] = useState([]);
-
-
-  const addOne = () => {
-    console.log("OK")
-    setBasketSize(basketSize.concat(2));
-  }
+  useEffect(() => {
+    localStorage.setItem("productsInBasket", JSON.stringify(productsInBasket))
+  }, [productsInBasket])
 
   const addProduct = (product) => {
-    setProducts(products.concat(product))
-    console.log(">>>>>", products)
+    setProducts(productsInBasket.concat(product))
+    console.log(">>>>>", productsInBasket)
+  }
+
+  const clearBasket = () => {
+    localStorage.removeItem("productsInBasket")
   }
 
 
@@ -40,21 +43,18 @@ const App = () => {
 
         <div className="App">
 
-          <button onClick={() => addOne()} >Add</button>
-
-          <Nav basketSize={products} />
+          <Nav basketSize={productsInBasket.length} />
 
           <Banner />
 
-          <Basket basketSize={basketSize} />
-          
-          <ProductList addProduct={addProduct} />
+          {/* <ProductList addProduct={addProduct} /> */}
 
-          {/* <Switch>
-            <Route path="/" component={ProductList} exact />
+          <Switch>
+            <Route path="/" render={() => <ProductList addProduct={addProduct} />} exact />
+            {/* <Route path="/" render={(props) => console.log(">>", props)} />} exact />  */}
             <Route path="/basket" component={Basket} exact />
             <Route path="/contact" component={Contact} exact />
-          </Switch> */}
+          </Switch>
 
         </div>
 
