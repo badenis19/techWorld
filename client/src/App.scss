@@ -1,0 +1,93 @@
+// variables
+// :root{
+//   --primary: #FFC636;
+//   --secondary: #0A0B5B;
+//   --white: #F2F2F2;
+// }
+// reset - Removes default behavior
+body,p,a,ul,li{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+body {
+    background-color: rgba(234, 235, 239, 1);
+  }
+
+// PRODUCT LIST //
+
+.row {
+  justify-content: center;
+
+  .product {
+    max-height: 303px;
+    max-width: 285px ;
+    padding: 0;
+    margin: 10px 0;
+  }
+
+  .product-card {
+    background: white;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 9px;
+    margin: 9px;
+    overflow: hidden;
+    align-items: center;
+
+    &:hover {
+      border: 1px solid rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .product-name {
+  text-align: center;
+
+    p {
+      min-height: 32px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      line-height: 16px;
+      max-height: 32px;
+      -webkit-line-clamp: 2; /* Write the number of lines you want to be displayed */
+      -webkit-box-orient: vertical;
+    }
+  }
+
+  .product-image {
+    padding: 10px 0;
+  }
+
+  .wrapper {
+    position: relative;
+    padding-top: 80%;
+
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .price-and-add-button {
+    min-height: 32px;
+    /*padding: 0 10px 10px;*/
+    display: flex;
+    justify-content: space-between;
+
+    p {
+      font-size: 1.2em;
+      color:red;
+      font-weight: bold;
+    }
+
+    button {
+      font-size: 0.8em;
+    }
+  }
+}
