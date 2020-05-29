@@ -14,7 +14,6 @@ import Banner from './components/Banner';
 /* import Button from 'react-bootstrap/Button'; */
 import { Container, Col, Row, Button } from 'react-bootstrap';
 
-
 // Apollo Client Setup
 const client = new ApolloClient({
   uri: "http://localhost:3001/graphql" //apollo knows we will be making requests to this end-point from our application
@@ -22,7 +21,7 @@ const client = new ApolloClient({
 
 const App = () => {
 
-  const [productsInBasket, setProducts] = useState(() => {
+  const [productsInBasket, setProductsInBasket] = useState(() => {
     const localData = localStorage.getItem("productsInBasket");
     return localData ? JSON.parse(localData) : [];
   });
@@ -32,14 +31,8 @@ const App = () => {
   }, [productsInBasket])
 
   const addProduct = (product) => {
-    setProducts(productsInBasket.concat(product))
-    console.log(">>>>>", productsInBasket)
+    setProductsInBasket(productsInBasket.concat(product))
   }
-
-  // const clearBasket = () => {
-  //   (setProducts([]))
-  // }
-
 
   return (
     <Router>
@@ -48,18 +41,29 @@ const App = () => {
         <div className="App">
 
           <Nav basketSize={productsInBasket.length} />
-
+          
           <Banner />
 
-          <button onClick={() => setProducts([])}>clear</button>
-
-          {/* <ProductList addProduct={addProduct} /> */}
-
           <Switch>
-            <Route path="/" render={() => <ProductList addProduct={addProduct} />} exact />
-            {/* <Route path="/" render={(props) => console.log(">>", props)} />} exact />  */}
-            <Route path="/basket" component={Basket} exact />
-            <Route path="/contact" component={Contact} exact />
+
+            <Route
+              path="/"
+              render={() => <ProductList addProduct={addProduct} />}
+              exact
+            />
+
+            <Route
+              path="/basket"
+              render={() => <Basket basket={productsInBasket} setProductsInBasket={setProductsInBasket}  />}
+              exact
+            />
+
+            <Route
+              path="/contact"
+              component={Contact}
+              exact
+            />
+
           </Switch>
 
         </div>
