@@ -10,6 +10,10 @@ import Basket from './components/Basket';
 import Contact from './components/Contact';
 import Banner from './components/Banner';
 
+/* Bootstrap Guideline*/
+/* import Button from 'react-bootstrap/Button'; */
+import { Container, Col, Row, Button } from 'react-bootstrap';
+
 // Apollo Client Setup
 const client = new ApolloClient({
   uri: "http://localhost:3001/graphql" //apollo knows we will be making requests to this end-point from our application
