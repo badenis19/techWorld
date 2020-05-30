@@ -4,6 +4,8 @@ import { graphql } from 'react-apollo'; // To bind Apollo with React Component
 /* Queries */
 import { getProductsQuery } from '../queries/queries'
 
+import '../App.scss'
+
 /* Component */
 class ProductList extends Component {
 
@@ -13,17 +15,27 @@ class ProductList extends Component {
 
   displayProducts() {
     let data = this.props.data;
- 
+
     if (data.loading) {
       return (<p>Loading Products...</p>)
     } else {
       return data.products.map(product => {
         return (
-          <div>
-            <p key={product.id}>{product.name}</p>
-            <p key={product.id}>{product.price}</p>
-            <img key={product.id} src={product.img_url} alt="product" />
-            <button onClick={() => this.addProducts(product)}>Add</button>
+          <div className="product col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+            <div className="product-card">
+              <div className="product-name">
+                <p key={product.id}>{product.name}</p>
+              </div>
+              <div className="product-image">
+                <div className="wrapper">
+                  <img key={product.id} src={product.img_url} alt="product" />
+                </div>
+              </div>
+              <div className="price-and-add-button">
+                <p key={product.id}>£{product.price.toFixed(2)}</p>
+                <button className="btn btn-success" onClick={() => this.addProducts(product)}>ADD TO BASKET</button>
+              </div>
+            </div>
           </div>
         )
       })
@@ -33,8 +45,10 @@ class ProductList extends Component {
   render() {
     console.log(this.props)
     return (
-      <div>
-        {this.displayProducts()}
+      <div className="container">
+        <div className="row">
+          {this.displayProducts()}
+        </div>
       </div>
     )
   }
