@@ -1,9 +1,8 @@
 // variables
-// :root{
-//   --primary: #FFC636;
-//   --secondary: #0A0B5B;
-//   --white: #F2F2F2;
-// }
+:root{
+  --blue: #4855A0;
+}
+
 // reset - Removes default behavior
 body,p,a,ul,li{
   margin: 0;
@@ -90,4 +89,32 @@ body {
       font-size: 0.8em;
     }
   }
+}
+
+// NAV //
+
+nav {
+  background: var(--blue);
+  display: flex;
+  justify-content: space-between;
+  
+  h2 {
+    color: #fff;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    display: inline-block;
+    padding: 10px 10px;
+    color: #fff;
+  }
+
+  li:hover {
+    background: #fff;
+    color: var(--blue);
+  }
+
 }
