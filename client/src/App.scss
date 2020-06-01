@@ -1,9 +1,8 @@
 // variables
-// :root{
-//   --primary: #FFC636;
-//   --secondary: #0A0B5B;
-//   --white: #F2F2F2;
-// }
+:root{
+  --blue: #4855A0;
+}
+
 // reset - Removes default behavior
 body,p,a,ul,li{
   margin: 0;
@@ -89,5 +88,73 @@ body {
     button {
       font-size: 0.8em;
     }
+  }
+}
+
+// NAV //
+
+nav {
+  background: var(--blue);
+  display: flex;
+  justify-content: space-between;
+  
+  h2 {
+    color: #fff;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    display: inline-block;
+    padding: 10px 10px;
+    color: #fff;
+  }
+
+  li:hover {
+    background: #fff;
+    color: var(--blue);
+  }
+
+}
+
+// BANNER //
+
+.banner {
+  width: 100vw;
+  height: 40vh;
+  background-image: url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+// FOOTER //
+
+footer {
+  position: absolute;
+
+  height: 5vh;
+  margin-top: 10px;
+  width: 100vw;
+  background-color: #23323d;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  
+  h4 {
+    padding-top: 6px;
+  }
+
+  ul li {
+    list-style: none;
+    display: inline;
+    padding-right: 10px;
+    font-size: 30px;
+  }
+
+  a {
+    color: #fff;
   }
 }

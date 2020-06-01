@@ -4,21 +4,29 @@ import { Link } from 'react-router-dom';
 const Nav = (props) => {
 
   return (
-    <nav>
-      <ul>
-        <Link to="/">
-          <li>Home</li>
-        </Link>
+    <nav className="site-nav">
 
-        <Link to="/basket">
-          <li>Basket {props.basketSize}</li>
-        </Link>
+      <div>
+        <h2>TW</h2>
+      </div>
 
-        <Link to="/contact">
-          <li>Contact</li>
-        </Link>
 
-      </ul>
+      <div>
+        <ul>
+          <Link to="/">
+            <li>Home</li>
+          </Link>
+
+          <Link to="/basket">
+            <li>Basket ({props.basketSize})</li>
+          </Link>
+
+          <Link to="/contact">
+            <li>Contact</li>
+          </Link>
+        </ul>
+      </div>
+      
     </nav>
   )
 }

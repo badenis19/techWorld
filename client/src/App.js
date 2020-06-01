@@ -9,10 +9,7 @@ import Nav from './components/Nav';
 import Basket from './components/Basket';
 import Contact from './components/Contact';
 import Banner from './components/Banner';
-
-/* Bootstrap Guideline*/
-/* import Button from 'react-bootstrap/Button'; */
-import { Container, Col, Row, Button } from 'react-bootstrap';
+import Footer from './components/Footer';
 
 // Apollo Client Setup
 const client = new ApolloClient({
@@ -21,6 +18,7 @@ const client = new ApolloClient({
 
 const App = () => {
 
+  // Storing the basket with local Storage
   const [productsInBasket, setProductsInBasket] = useState(() => {
     const localData = localStorage.getItem("productsInBasket");
     return localData ? JSON.parse(localData) : [];
@@ -65,6 +63,8 @@ const App = () => {
             />
 
           </Switch>
+
+          <Footer />
 
         </div>
 
