@@ -3,6 +3,7 @@ import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo'; // binds apollo to React
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
+
 /* Component */
 import ProductList from './components/ProductList';
 import Nav from './components/Nav';
@@ -29,14 +30,33 @@ const App = () => {
   }, [productsInBasket])
 
   const addProduct = (product) => {
+    // product.id = uid;
     setProductsInBasket(productsInBasket.concat(product))
   }
+
+  const removeProduct = (state, basket) => {
+    basket = JSON.parse(localStorage.getItem('productsInBasket'));
+
+    // console.log(basket[0]);
+    basket.splice(0, 1);
+    localStorage.setItem("productsInBasket", JSON.stringify(basket));
+  }
+
+  // removeAccount(state, account){
+  //   const accounts = JSON.parse(localStorage.getItem('accounts'));
+  //   delete accounts[account.apikey];
+  //   localStorage.setItem("accounts", JSON.stringify(accounts));
+  // }
+
+  
 
   return (
     <Router>
       <ApolloProvider client={client}>
 
         <div className="App">
+          
+          <p onClick={removeProduct}>CLICK</p>
 
           <Nav basketSize={productsInBasket.length} />
           

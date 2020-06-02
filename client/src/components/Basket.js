@@ -2,7 +2,6 @@ import React from 'react';
 
 const Basket = (props) => {
 
-
   const displayBasket = () => {
     if (props.basket) {
       return props.basket.map(product => {
