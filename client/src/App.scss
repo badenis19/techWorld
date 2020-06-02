@@ -26,7 +26,7 @@ body {
 
   }
 
-  
+
 
 // NAV //
 
@@ -34,7 +34,7 @@ nav {
   background: var(--blue);
   display: flex;
   justify-content: space-between;
-  
+
   h2 {
     color: #fff;
     padding-left: 10px;
@@ -160,7 +160,7 @@ footer {
   display: flex;
   justify-content: space-between;
   color: #fff;
-  
+
   h4 {
     padding-top: 6px;
   }
@@ -218,7 +218,7 @@ footer {
   padding: 15px 0;
   display: flex;
   justify-content: space-between;
-  
+
   p {
     font-weight: bold;
   }
@@ -258,4 +258,35 @@ footer {
 
 @media (min-width: 1200px) {
   body{font-size: 16px;}
+}
+
+// CONTACT //
+
+
+
+form{
+  .container {
+    // background: rgba(72, 85, 160, 0.2);
+    // padding: 30px auto;
+    padding-top: 10px;
+    margin-top: 30px;
+    border: 1px solid var(--blue);
+    border-radius: 5px;
+
+    h1 {
+      background: var(--blue);
+      padding: 10px;
+      border-radius: 5px 5px 0 0;
+    }
+
+    .btn {
+      margin-bottom: 18px;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  form {
+    margin: 0 15px;
+  }
 }
