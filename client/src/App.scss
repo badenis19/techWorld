@@ -5,14 +5,57 @@
 
 // reset - Removes default behavior
 body,p,a,ul,li{
+  // font-size: 12px;
   margin: 0;
   padding: 0;
   text-decoration: none;
 }
 
+.App {
+  min-height: 100vh;
+  position: relative;
+}
+
 body {
     background-color: rgba(234, 235, 239, 1);
+
+    .title {
+      text-align: center;
+      padding: 12px 12px;
+    }
+
   }
+
+  
+
+// NAV //
+
+nav {
+  background: var(--blue);
+  display: flex;
+  justify-content: space-between;
+  
+  h2 {
+    color: #fff;
+    padding-left: 10px;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    display: inline-block;
+    padding: 10px 10px;
+    color: #fff;
+  }
+
+  li:hover {
+    background: #fff;
+    color: var(--blue);
+  }
+
+}
 
 // PRODUCT LIST //
 
@@ -91,33 +134,8 @@ body {
   }
 }
 
-// NAV //
 
-nav {
-  background: var(--blue);
-  display: flex;
-  justify-content: space-between;
-  
-  h2 {
-    color: #fff;
-  }
 
-  ul {
-    list-style: none;
-  }
-
-  li {
-    display: inline-block;
-    padding: 10px 10px;
-    color: #fff;
-  }
-
-  li:hover {
-    background: #fff;
-    color: var(--blue);
-  }
-
-}
 
 // BANNER //
 
@@ -128,14 +146,14 @@ nav {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+
 }
 
 // FOOTER //
 
 footer {
-  position: absolute;
-
-  height: 5vh;
+  position: relative;
+  bottom: 0;
   margin-top: 10px;
   width: 100vw;
   background-color: #23323d;
@@ -157,4 +175,87 @@ footer {
   a {
     color: #fff;
   }
+}
+
+// BASKET //
+
+.basket {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+
+  .product-img, .name {
+    padding-left: 9px;
+  }
+
+  .price {
+    padding-right: 9px;
+    font-weight: bold;
+  }
+
+  .remove-link {
+    text-decoration: underline;
+    text-align: center;
+    padding-left: 9px;
+  }
+
+  .remove-link:hover {
+    color: red;
+    cursor: pointer;
+  }
+}
+
+.container {
+  .checkout {
+    text-align: center;
+    position: relative;
+    float: right;
+    margin: 10px 0;
+  }
+}
+
+.clear-basket-and-total-price {
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  
+  p {
+    font-weight: bold;
+  }
+}
+
+
+@media (max-width: 576px) {
+  body {
+    font-size: 12px;
+  }
+
+  .product-img {
+    max-width: 70px;
+  }
+}
+
+@media (min-width: 577px) {
+  body {
+    font-size: 14px;
+  }
+
+  .product-img {
+    max-width: 190px;
+  }
+}
+
+@media (min-width: 768px) {
+  body{font-size: 14px;}
+  .product-img {
+    max-width: 300px;
+  }
+}
+
+@media (min-width: 992px) {
+  body{font-size: 16px;}
+}
+
+@media (min-width: 1200px) {
+  body{font-size: 16px;}
 }
