@@ -2,6 +2,11 @@ import React from 'react';
 
 const Basket = (props) => {
 
+
+  const handleRemoveClick = (product) => {
+    props.removeProduct(product.id)
+  }
+
   const displayBasket = () => {
     if (props.basket) {
       return props.basket.map(product => {
@@ -9,7 +14,7 @@ const Basket = (props) => {
           <div className="col-12 basket border-bottom">
             <div className="">
               <img className="product-img" key={product.id} src={product.img_url} alt="product" />
-              <p className="remove-link">remove</p>
+              <p className="remove-link" onClick={() => handleRemoveClick(product)}>remove</p>
             </div>
             <div className="name">
               <p key={product.id}>{product.name}</p>

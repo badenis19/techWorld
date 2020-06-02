@@ -30,16 +30,17 @@ const App = () => {
   }, [productsInBasket])
 
   const addProduct = (product) => {
-    // product.id = uid;
     setProductsInBasket(productsInBasket.concat(product))
   }
 
-  const removeProduct = (state, basket) => {
-    basket = JSON.parse(localStorage.getItem('productsInBasket'));
+  // const removeProduct = (state, basket) => {
+  const removeProduct = (product) => {
+    console.log(product)
+    // basket = JSON.parse(localStorage.getItem('productsInBasket'));
 
-    // console.log(basket[0]);
-    basket.splice(0, 1);
-    localStorage.setItem("productsInBasket", JSON.stringify(basket));
+    // // console.log(basket[0]);
+    // basket.splice(0, 1);
+    // localStorage.setItem("productsInBasket", JSON.stringify(basket));
   }
 
   // removeAccount(state, account){
@@ -47,6 +48,8 @@ const App = () => {
   //   delete accounts[account.apikey];
   //   localStorage.setItem("accounts", JSON.stringify(accounts));
   // }
+
+
 
   
 
@@ -56,8 +59,6 @@ const App = () => {
 
         <div className="App">
           
-          <p onClick={removeProduct}>CLICK</p>
-
           <Nav basketSize={productsInBasket.length} />
           
           <Banner />
@@ -72,7 +73,7 @@ const App = () => {
 
             <Route
               path="/basket"
-              render={() => <Basket basket={productsInBasket} setProductsInBasket={setProductsInBasket}  />}
+              render={() => <Basket basket={productsInBasket} setProductsInBasket={setProductsInBasket} removeProduct={removeProduct}  />}
               exact
             />
 
