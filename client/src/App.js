@@ -3,6 +3,7 @@ import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo'; // binds apollo to React
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
+
 /* Component */
 import ProductList from './components/ProductList';
 import Nav from './components/Nav';
@@ -18,9 +19,13 @@ const client = new ApolloClient({
 
 const App = () => {
 
+  //State/Basket update issue
+
+  let localData = null;
+
   // Storing the basket with local Storage
   const [productsInBasket, setProductsInBasket] = useState(() => {
-    const localData = localStorage.getItem("productsInBasket");
+    localData = localStorage.getItem("productsInBasket"); // String
     return localData ? JSON.parse(localData) : [];
   });
 
@@ -28,8 +33,22 @@ const App = () => {
     localStorage.setItem("productsInBasket", JSON.stringify(productsInBasket))
   }, [productsInBasket])
 
+  // Add product to the basket
   const addProduct = (product) => {
     setProductsInBasket(productsInBasket.concat(product))
+  }
+
+  // Remove product from basket
+  const removeProduct = (productId) => {
+    let updatedBasket = [];
+
+    productsInBasket.forEach(item => {
+      if (item.id !== productId) {
+        updatedBasket.push(item);
+      }
+    });
+
+    setProductsInBasket(updatedBasket);
   }
 
   return (
@@ -39,7 +58,7 @@ const App = () => {
         <div className="App">
 
           <Nav basketSize={productsInBasket.length} />
-          
+
           <Banner />
 
           <Switch>
@@ -52,7 +71,7 @@ const App = () => {
 
             <Route
               path="/basket"
-              render={() => <Basket basket={productsInBasket} setProductsInBasket={setProductsInBasket}  />}
+              render={() => <Basket basket={productsInBasket} setProductsInBasket={setProductsInBasket} removeProduct={removeProduct} />}
               exact
             />
 
