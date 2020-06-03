@@ -5,11 +5,9 @@ const Nav = (props) => {
 
   return (
     <nav className="site-nav">
-
       <div>
         <h2>TW</h2>
       </div>
-
 
       <div>
         <ul>
@@ -26,9 +24,6 @@ const Nav = (props) => {
           </Link>
         </ul>
       </div>
-
-    
-      
     </nav>
   )
 }
