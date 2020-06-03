@@ -9,7 +9,7 @@ import '../App.scss'
 /* Component */
 class ProductList extends Component {
 
-  addProducts(product){
+  addProducts(product) {
     this.props.addProduct(product);
   }
 
@@ -19,7 +19,6 @@ class ProductList extends Component {
       return (<p>Loading Products...</p>)
     } else {
       return data.products.map(product => {
-        // console.log(">>", product.id)
         return (
           <div key={product.id} className="product col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
             <div className="product-card">
@@ -43,7 +42,6 @@ class ProductList extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div className="container">
         <div className="row">
