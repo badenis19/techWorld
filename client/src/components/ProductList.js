@@ -19,8 +19,9 @@ class ProductList extends Component {
       return (<p>Loading Products...</p>)
     } else {
       return data.products.map(product => {
+        // console.log(">>", product.id)
         return (
-          <div className="product col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+          <div key={product.id} className="product col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
             <div className="product-card">
               <div className="product-name">
                 <p key={product.id}>{product.name}</p>

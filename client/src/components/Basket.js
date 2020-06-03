@@ -2,7 +2,6 @@ import React from 'react';
 
 const Basket = (props) => {
 
-
   const handleRemoveClick = (product) => {
     props.removeProduct(product.id)
   }
@@ -11,7 +10,7 @@ const Basket = (props) => {
     if (props.basket) {
       return props.basket.map(product => {
         return (
-          <div className="col-12 basket border-bottom">
+          <div key={product.id} className="col-12 basket border-bottom">
             <div className="">
               <img className="product-img" key={product.id} src={product.img_url} alt="product" />
               <p className="remove-link" onClick={() => handleRemoveClick(product)}>remove</p>
@@ -58,7 +57,7 @@ const Basket = (props) => {
           </div>
 
           <div>
-            <p>{getTotalPrice()}</p>
+            {getTotalPrice()}
           </div>
         </div>
 

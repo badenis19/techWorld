@@ -19,9 +19,13 @@ const client = new ApolloClient({
 
 const App = () => {
 
+  //State/Basket update issue
+
+  let localData = null;
+
   // Storing the basket with local Storage
   const [productsInBasket, setProductsInBasket] = useState(() => {
-    const localData = localStorage.getItem("productsInBasket");
+    localData = localStorage.getItem("productsInBasket"); // String
     return localData ? JSON.parse(localData) : [];
   });
 
@@ -29,38 +33,32 @@ const App = () => {
     localStorage.setItem("productsInBasket", JSON.stringify(productsInBasket))
   }, [productsInBasket])
 
+  // Add product to the basket
   const addProduct = (product) => {
     setProductsInBasket(productsInBasket.concat(product))
   }
 
-  // const removeProduct = (state, basket) => {
-  const removeProduct = (product) => {
-    console.log(product)
-    // basket = JSON.parse(localStorage.getItem('productsInBasket'));
+  // Remove product from basket
+  const removeProduct = (productId) => {
+    let updatedBasket = [];
 
-    // // console.log(basket[0]);
-    // basket.splice(0, 1);
-    // localStorage.setItem("productsInBasket", JSON.stringify(basket));
+    productsInBasket.forEach(item => {
+      if (item.id !== productId) {
+        updatedBasket.push(item);
+      }
+    });
+
+    setProductsInBasket(updatedBasket);
   }
-
-  // removeAccount(state, account){
-  //   const accounts = JSON.parse(localStorage.getItem('accounts'));
-  //   delete accounts[account.apikey];
-  //   localStorage.setItem("accounts", JSON.stringify(accounts));
-  // }
-
-
-
-  
 
   return (
     <Router>
       <ApolloProvider client={client}>
 
         <div className="App">
-          
+
           <Nav basketSize={productsInBasket.length} />
-          
+
           <Banner />
 
           <Switch>
@@ -73,7 +71,7 @@ const App = () => {
 
             <Route
               path="/basket"
-              render={() => <Basket basket={productsInBasket} setProductsInBasket={setProductsInBasket} removeProduct={removeProduct}  />}
+              render={() => <Basket basket={productsInBasket} setProductsInBasket={setProductsInBasket} removeProduct={removeProduct} />}
               exact
             />
 
