@@ -43,7 +43,7 @@ class ProductList extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="product-container container">
         <div className="row">
           {this.displayProducts()}
         </div>
