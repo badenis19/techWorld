@@ -44,6 +44,7 @@ class ProductList extends Component {
   render() {
     return (
       <div className="product-container container">
+        <p className="tw-intro">Here at <strong>TechWorld</strong> we sell only the very finest gaming mice on the market today with just one aim: to make it as easy as possible for a gamer to find the right rodent for their intended usage and budget..</p>
         <div className="row">
           {this.displayProducts()}
         </div>

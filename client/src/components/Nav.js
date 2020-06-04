@@ -5,9 +5,11 @@ const Nav = (props) => {
 
   return (
     <nav className="site-nav">
-      <div>
-        <h2>TW</h2>
-      </div>
+      <a id="logo-link" href="/">
+        <div className="circleborder">
+          <div>TW</div>
+        </div>
+      </a>
 
       <div>
         <ul>

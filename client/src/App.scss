@@ -1,6 +1,7 @@
 // variables
 :root{
-  --blue: #4855A0;
+  --blue: RGB(8, 34, 67);
+  --sub: rgba(151, 108, 65, 1)
 }
 
 // reset - Removes default behavior
@@ -18,7 +19,10 @@ body,p,a,ul,li{
 }
 
 body {
-    background-color: rgba(234, 235, 239, 1);
+  font-family: 'Roboto', sans-serif;
+  overflow-y:scroll;
+  background-color: rgba(234, 235, 239, 1);
+  // background-color: rgba(255, 248, 212, 1);
 
     .title {
       text-align: center;
@@ -30,11 +34,47 @@ body {
 // NAV //
 
 nav {
+  z-index: 999;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 2px 4px -1px rgba(0,0,0,0.25);
   background: var(--blue);
   display: flex;
   justify-content: space-between;
+  min-height: 51px;
+  align-items:center;
 
-  h2 {
+  #logo-link {
+    text-decoration: none;
+  }
+
+  .circleborder {
+    color: #fff;
+    opacity: 0.7;
+    position: relative;
+    height: 45px;
+    width: 45px;
+    border: 2px solid white;
+    border-radius: 50%;
+    margin-left:15px;
+
+    &:hover {
+      color: #fff;
+      opacity: 1;
+    }
+
+    div {
+      font-size: 1.4em;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+  }
+
+  h4 {
     color: #fff;
     padding-left: 10px;
   }
@@ -44,14 +84,16 @@ nav {
   }
 
   li {
+    height: 50px;
     display: inline-block;
     padding: 10px 10px;
     color: #fff;
-  }
+    opacity: 0.7;
 
-  li:hover {
-    background: #fff;
-    color: var(--blue);
+    &:hover {
+      color: #fff;
+      opacity: 1;
+    }
   }
 
 }
@@ -59,6 +101,15 @@ nav {
 // PRODUCT LIST //
 .product-container {
   margin-bottom: 10px;
+
+  .tw-intro{
+    background: white;
+    padding: 9px;
+    margin-left: -6px;
+    margin-right: -6px;
+    margin-top: 19px;
+    border-radius: 5px;
+  }
 }
 
 .row {
@@ -126,7 +177,7 @@ nav {
 
     p {
       font-size: 1.2em;
-      color:red;
+      color: rgba(151, 108, 65, 1);
       font-weight: bold;
     }
 
@@ -142,12 +193,28 @@ nav {
 // BANNER //
 
 .banner {
+  box-shadow: 0 2px 4px -1px rgba(0,0,0,0.25);
+  position: relative;
   // width: 100vw;
   height: 40vh;
-  background-image: url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80");
+  // background-image: url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80");
+  background-image: url('./images/nasa.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  display: flex;
+  justify-content: center;
+
+  h1 {
+    position: absolute;
+    top: 6vh;
+    // text-align: center;
+
+    justify-content: center;
+    font-size: 5em;
+    // color: #fff;
+    color: rgba(229, 189, 130, 1);
+  }
 
 }
 
@@ -157,7 +224,7 @@ footer {
   position: relative;
   bottom: 0;
   width: 100%;
-  background-color: #23323d;
+  background-color: var(--blue);
   display: flex;
   justify-content: space-between;
   color: #fff;
@@ -279,7 +346,7 @@ form{
     padding-top: 10px;
     margin-top: 30px;
     margin-bottom: 10px;
-    border: 1px solid var(--blue);
+    border: 1px solid var(--sub);
     border-radius: 5px;
 
     h1 {
