@@ -162,6 +162,11 @@ footer {
   justify-content: space-between;
   color: #fff;
 
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
   h4 {
     padding-top: 6px;
   }
@@ -169,16 +174,12 @@ footer {
   ul li {
     list-style: none;
     display: inline;
-    margin-right: 10px;
+    margin-left: 10px;
     font-size: 30px;
   }
 
   a {
     color: #fff;
-  }
-
-  .footer-title {
-    margin-left: 10px;
   }
 }
 
