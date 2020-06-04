@@ -12,8 +12,7 @@ body,p,a,ul,li{
 }
 
 .App {
-  overflow-y:scroll;
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   position: relative;
 }
@@ -27,8 +26,6 @@ body {
     }
 
   }
-
-
 
 // NAV //
 
@@ -178,6 +175,10 @@ footer {
 
   a {
     color: #fff;
+  }
+
+  .footer-title {
+    margin-left: 10px;
   }
 }
 
