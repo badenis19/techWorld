@@ -46,7 +46,6 @@ class ProductList extends Component {
 
 
   render() {
-    {
       if (this.props.data.products) {
         return (
           <div className="container">
@@ -57,9 +56,8 @@ class ProductList extends Component {
         )
       }
       return (
-        <EmptyMessage message="No Products Available" />
+        <EmptyMessage message="Product are loading... Please wait" />
       )
-    }
   }
 }
 

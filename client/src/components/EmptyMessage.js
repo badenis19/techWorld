@@ -1,14 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../App.scss';
 
-const EmptyMessage = ({message}) => {
+const EmptyMessage = ({ message, entity }) => {
 
-  return (
-    <div className="empty-message">
-      <p>{message}<Link to={`/`}>Go to Products</Link></p>
-      {/* <p>No {entityName} yet. <Link to={`${entityName.toLowerCase()}/create`}>{createCopy}</Link></p> */}
-    </div>
-  )
+  if (entity) {
+    return (
+      <div className="empty-message">
+        <p>{message}<Link to={`/`}> Go to Products</Link></p>
+      </div>
+    )
+  } else {
+    return (
+      <div className="empty-message">
+        <p>{message}</p>
+      </div>
+    )
+  }
 }
 
 export default EmptyMessage;

@@ -2,6 +2,8 @@ import React from 'react';
 
 import EmptyMessage from './EmptyMessage'
 
+import '../App.scss';
+
 const Basket = (props) => {
   
   // if basket exists + is not empty + has a length
@@ -74,7 +76,7 @@ const Basket = (props) => {
       </div>
     )
   } else {
-    return <EmptyMessage message="No Products in Basket. Add Some :)" />
+    return <EmptyMessage message="There are no products in your Basket." entity="product" />
   }
 
 
