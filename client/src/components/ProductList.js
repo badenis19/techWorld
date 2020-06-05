@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo'; // To bind Apollo with React Component
 
+
 /* Queries */
 import { getProductsQuery } from '../queries/queries'
 
 import '../App.scss'
 
 /* Component */
+import EmptyMessage from './EmptyMessage';
+
 class ProductList extends Component {
 
   addProducts(product) {
@@ -41,14 +44,20 @@ class ProductList extends Component {
     }
   }
 
+
   render() {
-    return (
-      <div className="container">
-        <div className="row">
-          {this.displayProducts()}
-        </div>
-      </div>
-    )
+      if (this.props.data.products) {
+        return (
+          <div className="container">
+            <div className="row">
+              {this.displayProducts()}
+            </div>
+          </div>
+        )
+      }
+      return (
+        <EmptyMessage message="Product are loading... Please wait" />
+      )
   }
 }
 
