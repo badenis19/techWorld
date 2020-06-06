@@ -5,7 +5,7 @@ import '../App.scss'
 const Contact = () => {
 
   return (
-
+    <div className="contact-container">
       <form>
         <h1 className="title">Contact Us</h1>
         <div className="container">
@@ -37,6 +37,7 @@ const Contact = () => {
           </div>
         </div>
       </form>
+    </div>
 
   )
 }

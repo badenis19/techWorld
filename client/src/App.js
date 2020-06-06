@@ -20,7 +20,6 @@ const client = new ApolloClient({
 const App = () => {
 
   //State/Basket update issue
-
   let localData = null;
 
   // Storing the basket with local Storage

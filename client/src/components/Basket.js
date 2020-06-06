@@ -16,6 +16,7 @@ const Basket = (props) => {
   const displayBasket = () => {
     if (props.basket) {
       return props.basket.map(product => {
+        console.log(product.name);
         return (
           <div key={product.id} className="col-12 basket border-bottom">
             <div className="">
