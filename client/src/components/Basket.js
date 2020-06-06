@@ -1,8 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import EmptyMessage from './EmptyMessage'
-
+/* Styles */
 import '../App.scss';
+
+/* Component */
+import EmptyMessage from './EmptyMessage'
 
 const Basket = (props) => {
   
@@ -16,7 +19,6 @@ const Basket = (props) => {
   const displayBasket = () => {
     if (props.basket) {
       return props.basket.map(product => {
-        console.log(product.name);
         return (
           <div key={product.id} className="col-12 basket border-bottom">
             <div className="">
@@ -79,8 +81,13 @@ const Basket = (props) => {
   } else {
     return <EmptyMessage message="There are no products in your Basket." entity="product" />
   }
-
-
 }
+
+Basket.propTypes = {
+  basket: PropTypes.array.isRequired,
+  setProductsInBasket: PropTypes.func.isRequired,
+  removeProduct:PropTypes.func.isRequired
+}
+
 
 export default Basket;

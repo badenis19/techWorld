@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo'; // To bind Apollo with React Component
-
+import PropTypes from 'prop-types';
 
 /* Queries */
 import { getProductsQuery } from '../queries/queries'
 
+/* Styles */
 import '../App.scss'
 
 /* Component */
@@ -61,6 +62,11 @@ class ProductList extends Component {
         <EmptyMessage message="Product are loading... Please wait" />
       )
   }
+}
+
+ProductList.propTypes = {
+  addProduct: PropTypes.func.isRequired,
+  data: PropTypes.object.isRequired
 }
 
 export default graphql(getProductsQuery)(ProductList); // query result accessible via props
