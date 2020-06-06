@@ -295,6 +295,17 @@ footer {
   }
 }
 
+// EMPTY MESSAGE //
+
+.empty-message {
+  min-height: 49.6vh;
+  
+  p {
+    padding-left: 5px;
+  }
+}
+
+// MEDIA QUERIES
 
 @media (max-width: 576px) {
   body {
