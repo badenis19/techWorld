@@ -19,7 +19,7 @@ const Nav = (props) => {
           </Link>
 
           <Link to="/basket">
-            <li>Basket ({props.basketSize})</li>
+            <li><i class="fas fa-shopping-basket"></i> {props.basketSize}</li>
           </Link>
 
           <Link to="/contact">
