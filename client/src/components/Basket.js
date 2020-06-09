@@ -5,18 +5,18 @@ import EmptyMessage from './EmptyMessage'
 import '../App.scss';
 
 const Basket = (props) => {
-  
+
   // if basket exists + is not empty + has a length
   const hasProducts = (props.basket && props.basket !== null) && props.basket.length;
-  
+
   const handleRemoveClick = (product) => {
     props.removeProduct(product.id)
+    product.isInBasket = false;
   }
 
   const displayBasket = () => {
     if (props.basket) {
       return props.basket.map(product => {
-        console.log(product.name);
         return (
           <div key={product.id} className="col-12 basket border-bottom">
             <div className="">
@@ -36,7 +36,10 @@ const Basket = (props) => {
   }
 
   const clearBasket = () => {
-    props.setProductsInBasket([])
+    props.basket.forEach(item => {
+      item.isInBasket = false;
+    })
+    props.setProductsInBasket([]);
   }
 
   const getTotalPrice = () => {
@@ -79,8 +82,6 @@ const Basket = (props) => {
   } else {
     return <EmptyMessage message="There are no products in your Basket." entity="product" />
   }
-
-
 }
 
 export default Basket;

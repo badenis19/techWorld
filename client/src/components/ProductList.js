@@ -13,6 +13,7 @@ import EmptyMessage from './EmptyMessage';
 class ProductList extends Component {
 
   addProducts(product) {
+    product.isInBasket = true;
     this.props.addProduct(product);
   }
 
@@ -35,7 +36,7 @@ class ProductList extends Component {
               </div>
               <div className="price-and-add-button">
                 <p key={product.id}>£{product.price.toFixed(2)}</p>
-                <button className="btn btn-success" onClick={() => this.addProducts(product)}>ADD TO BASKET</button>
+                <button className={product.isInBasket ? "btn disable-button" : "btn btn-success"} onClick={() => this.addProducts(product)}>{product.isInBasket ? "ADDED" : "ADD TO BASKET"}</button>
               </div>
             </div>
           </div>
@@ -43,7 +44,6 @@ class ProductList extends Component {
       })
     }
   }
-
 
   render() {
 

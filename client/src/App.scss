@@ -299,7 +299,7 @@ footer {
 
 .empty-message {
   min-height: 49.6vh;
-  
+
   p {
     padding-left: 5px;
   }
@@ -376,3 +376,8 @@ form{
   }
 }
 
+.disable-button {
+  // pointer-events:none;
+  background: grey !important;
+  pointer-events: none;
+}

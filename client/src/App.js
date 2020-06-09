@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo'; // binds apollo to React
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
