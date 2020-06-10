@@ -6,7 +6,6 @@
 
 // reset - Removes default behavior
 body,p,a,ul,li{
-  // font-size: 12px;
   margin: 0;
   padding: 0;
   text-decoration: none;
@@ -22,7 +21,6 @@ body {
   font-family: 'Roboto', sans-serif;
   overflow-y:scroll;
   background-color: rgba(234, 235, 239, 1);
-  // background-color: rgba(255, 248, 212, 1);
 
     .title {
       text-align: center;
@@ -94,7 +92,6 @@ nav {
       opacity: 1;
     }
   }
-
 }
 
 // PRODUCT LIST //
@@ -175,7 +172,6 @@ nav {
 
   .price-and-add-button {
     min-height: 32px;
-    /*padding: 0 10px 10px;*/
     display: flex;
     justify-content: space-between;
 
@@ -195,13 +191,10 @@ nav {
 
 
 // BANNER //
-
 .banner {
   box-shadow: 0 2px 4px -1px rgba(0,0,0,0.25);
   position: relative;
-  // width: 100vw;
   height: 40vh;
-  // background-image: url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80");
   background-image: url('./images/nasa.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -212,18 +205,14 @@ nav {
   h1 {
     position: absolute;
     top: 6vh;
-    // text-align: center;
-
     justify-content: center;
     font-size: 5em;
-    // color: #fff;
     color: rgba(229, 189, 130, 1);
   }
 
 }
 
 // FOOTER //
-
 footer {
   position: relative;
   bottom: 0;
@@ -301,7 +290,6 @@ footer {
 }
 
 // EMPTY MESSAGE //
-
 .empty-message {
   min-height: 49.6vh;
 
@@ -311,7 +299,6 @@ footer {
 }
 
 // MEDIA QUERIES
-
 @media (max-width: 576px) {
   body {
     font-size: 12px;
@@ -323,8 +310,7 @@ footer {
 
   .product-container{
     .intro {
-      padding-left:17px ;
-      padding-right: 17px ;
+      padding: 0 17px;
     }
   }
 }
@@ -355,15 +341,12 @@ footer {
 }
 
 // CONTACT //
-
 .contact-container {
   min-height: 50.6vh;
 }
 
 form{
   .container {
-    // background: rgba(72, 85, 160, 0.2);
-    // padding: 30px auto;
     padding-top: 10px;
     margin-top: 30px;
     margin-bottom: 10px;
@@ -389,7 +372,6 @@ form{
 }
 
 .disable-button {
-  // pointer-events:none;
   background: grey !important;
   pointer-events: none;
 }

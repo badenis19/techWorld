@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo'; // binds apollo to React
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -19,12 +19,9 @@ const client = new ApolloClient({
 
 const App = () => {
 
-  //State/Basket update issue
-  let localData = null;
-
   // Storing the basket with local Storage
   const [productsInBasket, setProductsInBasket] = useState(() => {
-    localData = localStorage.getItem("productsInBasket"); // String
+    let localData = localStorage.getItem("productsInBasket"); // String
     return localData ? JSON.parse(localData) : [];
   });
 
