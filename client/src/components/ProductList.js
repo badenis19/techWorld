@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo'; // To bind Apollo with React Component
+import PropTypes from 'prop-types';
+
 /* Queries */
 import { getProductsQuery } from '../queries/queries'
-import '../App.scss'
+import '../App.scss';
+
 /* Component */
 import EmptyMessage from './EmptyMessage';
 class ProductList extends Component {

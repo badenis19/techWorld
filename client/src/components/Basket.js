@@ -1,6 +1,8 @@
 import React from 'react';
 import EmptyMessage from './EmptyMessage'
 import '../App.scss';
+import PropTypes from 'prop-types';
+
 const Basket = (props) => {
   // if basket exists + is not empty + has a length
   const hasProducts = (props.basket && props.basket !== null) && props.basket.length;
@@ -8,6 +10,7 @@ const Basket = (props) => {
     props.removeProduct(product.id)
     product.isInBasket = false;
   }
+
   const displayBasket = () => {
     if (props.basket) {
       return props.basket.map(product => {
@@ -28,12 +31,14 @@ const Basket = (props) => {
       })
     }
   }
+
   const clearBasket = () => {
     props.basket.forEach(item => {
       item.isInBasket = false;
     })
     props.setProductsInBasket([]);
   }
+
   const getTotalPrice = () => {
     let total = 0;
     if (props.basket) {
@@ -43,6 +48,7 @@ const Basket = (props) => {
     }
     return <p>£{total.toFixed(2)}</p>;
   }
+
   if (hasProducts) {
     return (
       <div>
@@ -67,4 +73,11 @@ const Basket = (props) => {
     return <EmptyMessage message="There are no products in your Basket." entity="product" />
   }
 }
+
+Basket.propTypes = {
+  basket: PropTypes.array.isRequired,
+  setProductsInBasket: PropTypes.func.isRequired,
+  removeProduct: PropTypes.func.isRequired
+}
+
 export default Basket;
