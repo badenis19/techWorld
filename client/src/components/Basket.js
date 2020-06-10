@@ -4,8 +4,10 @@ import '../App.scss';
 import PropTypes from 'prop-types';
 
 const Basket = (props) => {
+
   // if basket exists + is not empty + has a length
   const hasProducts = (props.basket && props.basket !== null) && props.basket.length;
+
   const handleRemoveClick = (product) => {
     props.removeProduct(product.id)
     product.isInBasket = false;
