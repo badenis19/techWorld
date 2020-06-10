@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo'; // To bind Apollo with React Component
-
+import PropTypes from 'prop-types';
 
 /* Queries */
 import { getProductsQuery } from '../queries/queries'
-
-import '../App.scss'
+import '../App.scss';
 
 /* Component */
 import EmptyMessage from './EmptyMessage';
-
 class ProductList extends Component {
-
   addProducts(product) {
     product.isInBasket = true;
     this.props.addProduct(product);
   }
-
   displayProducts() {
     let data = this.props.data;
     if (data.loading) {
@@ -46,7 +42,6 @@ class ProductList extends Component {
   }
 
   render() {
-
       if (this.props.data.products) {
         return (
           <div className="product-container container">
@@ -63,6 +58,12 @@ class ProductList extends Component {
         <EmptyMessage message="Product are loading... Please wait" />
       )
   }
+}
+
+
+ProductList.propTypes = {
+  addProduct: PropTypes.func.isRequired,
+  data: PropTypes.object.isRequired
 }
 
 export default graphql(getProductsQuery)(ProductList); // query result accessible via props

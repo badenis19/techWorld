@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import '../App.scss';
 
 const EmptyMessage = ({ message, entity }) => {
@@ -17,6 +18,11 @@ const EmptyMessage = ({ message, entity }) => {
       </div>
     )
   }
+}
+
+EmptyMessage.propTypes = {
+  message: PropTypes.string.isRequired,
+  entity: PropTypes.string.isRequired
 }
 
 export default EmptyMessage;

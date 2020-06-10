@@ -1,8 +1,7 @@
 import React from 'react';
-
 import EmptyMessage from './EmptyMessage'
-
 import '../App.scss';
+import PropTypes from 'prop-types';
 
 const Basket = (props) => {
 
@@ -52,36 +51,35 @@ const Basket = (props) => {
     return <p>£{total.toFixed(2)}</p>;
   }
 
-
   if (hasProducts) {
     return (
       <div>
         <h1 className="title">Basket</h1>
-
         <div className="container">
-
           <div className="row">
             {displayBasket()}
           </div>
-
           <div className="clear-basket-and-total-price">
             <div>
               <button className="btn btn-warning" onClick={() => clearBasket()}>Clear</button>
             </div>
-
             <div>
               {getTotalPrice()}
             </div>
           </div>
-
           <div className="btn btn-success checkout">Checkout</div>
         </div>
-
       </div>
     )
   } else {
     return <EmptyMessage message="There are no products in your Basket." entity="product" />
   }
+}
+
+Basket.propTypes = {
+  basket: PropTypes.array.isRequired,
+  setProductsInBasket: PropTypes.func.isRequired,
+  removeProduct: PropTypes.func.isRequired
 }
 
 export default Basket;
