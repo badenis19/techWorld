@@ -1,21 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
-/* Styles */
-import '../App.scss';
-
-/* Component */
 import EmptyMessage from './EmptyMessage'
-
+import '../App.scss';
 const Basket = (props) => {
-  
   // if basket exists + is not empty + has a length
   const hasProducts = (props.basket && props.basket !== null) && props.basket.length;
-  
   const handleRemoveClick = (product) => {
     props.removeProduct(product.id)
+    product.isInBasket = false;
   }
-
   const displayBasket = () => {
     if (props.basket) {
       return props.basket.map(product => {
@@ -36,11 +28,12 @@ const Basket = (props) => {
       })
     }
   }
-
   const clearBasket = () => {
-    props.setProductsInBasket([])
+    props.basket.forEach(item => {
+      item.isInBasket = false;
+    })
+    props.setProductsInBasket([]);
   }
-
   const getTotalPrice = () => {
     let total = 0;
     if (props.basket) {
@@ -50,44 +43,28 @@ const Basket = (props) => {
     }
     return <p>£{total.toFixed(2)}</p>;
   }
-
-
   if (hasProducts) {
     return (
       <div>
         <h1 className="title">Basket</h1>
-
         <div className="container">
-
           <div className="row">
             {displayBasket()}
           </div>
-
           <div className="clear-basket-and-total-price">
             <div>
               <button className="btn btn-warning" onClick={() => clearBasket()}>Clear</button>
             </div>
-
             <div>
               {getTotalPrice()}
             </div>
           </div>
-
           <div className="btn btn-success checkout">Checkout</div>
         </div>
-
       </div>
     )
   } else {
     return <EmptyMessage message="There are no products in your Basket." entity="product" />
   }
 }
-
-Basket.propTypes = {
-  basket: PropTypes.array.isRequired,
-  setProductsInBasket: PropTypes.func.isRequired,
-  removeProduct:PropTypes.func.isRequired
-}
-
-
 export default Basket;

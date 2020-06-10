@@ -1,22 +1,15 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo'; // To bind Apollo with React Component
-import PropTypes from 'prop-types';
-
 /* Queries */
 import { getProductsQuery } from '../queries/queries'
-
-/* Styles */
 import '../App.scss'
-
 /* Component */
 import EmptyMessage from './EmptyMessage';
-
 class ProductList extends Component {
-
   addProducts(product) {
+    product.isInBasket = true;
     this.props.addProduct(product);
   }
-
   displayProducts() {
     let data = this.props.data;
     if (data.loading) {
@@ -36,7 +29,7 @@ class ProductList extends Component {
               </div>
               <div className="price-and-add-button">
                 <p key={product.id}>£{product.price.toFixed(2)}</p>
-                <button className="btn btn-success" onClick={() => this.addProducts(product)}>ADD TO BASKET</button>
+                <button className={product.isInBasket ? "btn disable-button" : "btn btn-success"} onClick={() => this.addProducts(product)}>{product.isInBasket ? "ADDED" : "ADD TO BASKET"}</button>
               </div>
             </div>
           </div>
@@ -44,10 +37,7 @@ class ProductList extends Component {
       })
     }
   }
-
-
   render() {
-
       if (this.props.data.products) {
         return (
           <div className="product-container container">
@@ -63,6 +53,7 @@ class ProductList extends Component {
       )
   }
 }
+
 
 ProductList.propTypes = {
   addProduct: PropTypes.func.isRequired,
