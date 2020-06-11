@@ -28,9 +28,9 @@ const Contact = () => {
             </div>
 
 
-            <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-              <label for="exampleFormControlTextarea">Message</label>
-              <textarea class="form-control" id="exampleFormControlTextarea" rows="3" placeholder="Your message"/>
+            <div className="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+              <label htmlFor="exampleFormControlTextarea">Message</label>
+              <textarea className="form-control" id="exampleFormControlTextarea" rows="3" placeholder="Your message"/>
             </div>
 
             <button type="submit" className="btn btn-success">Submit</button>

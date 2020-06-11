@@ -104,7 +104,7 @@ nav {
 
 // PRODUCT LIST //
 .product-container {
-  margin-bottom: 10px;
+  padding-bottom: 50px;
 
   .intro {
     padding-right: 0;
@@ -255,6 +255,10 @@ footer {
 }
 
 // BASKET //
+.basket-container {
+  padding-bottom: 50px;
+}
+
 .basket {
   display: flex;
   justify-content: space-between;
@@ -283,10 +287,12 @@ footer {
 
 .container {
   .checkout {
+    display: flex;
+    padding: 15px 0;
+    justify-content: flex-end;
+  }
+  .checkout-btn {
     text-align: center;
-    position: relative;
-    float: right;
-    margin: 10px 0;
   }
 }
 
@@ -294,6 +300,7 @@ footer {
   padding: 15px 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   p {
     font-weight: bold;
@@ -353,10 +360,6 @@ footer {
 }
 
 // CONTACT //
-.contact-container {
-  min-height: 50.1vh;
-}
-
 form{
   .container {
     padding-top: 10px;
