@@ -14,6 +14,7 @@ class ProductList extends Component {
     this.props.addProduct(product);
   }
   displayProducts() {
+    console.log("<<<<");
     let data = this.props.data;
     if (data.loading) {
       return (<p>Loading Products...</p>)

@@ -4,6 +4,10 @@
   --sub: rgba(151, 108, 65, 1)
 }
 
+html, body, .App, header {
+  height:100%;
+}
+
 // reset - Removes default behavior
 body,p,a,ul,li{
   margin: 0;
@@ -221,7 +225,7 @@ nav {
 
 // FOOTER //
 footer {
-  position: relative;
+  position: absolute;
   bottom: 0;
   width: 100%;
   background-color: var(--blue);
@@ -298,7 +302,6 @@ footer {
 
 // EMPTY MESSAGE //
 .empty-message {
-  min-height: 50.1vh;
   display: flex;
   justify-content: center;
 
