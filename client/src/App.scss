@@ -84,12 +84,14 @@ nav {
   }
 
   ul {
+    display: flex;
     list-style: none;
   }
 
   li {
+    align-items: center;
     height: 50px;
-    display: inline-block;
+    display: flex;
     padding: 10px 10px;
     color: #fff;
     opacity: 0.7;
@@ -360,6 +362,9 @@ footer {
 }
 
 // CONTACT //
+.contact-container {
+  padding-bottom: 50px;
+}
 form{
   .container {
     padding-top: 10px;
