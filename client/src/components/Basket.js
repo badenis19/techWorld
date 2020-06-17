@@ -55,7 +55,7 @@ const Basket = (props) => {
     return (
       <div>
         <h1 className="title">Basket</h1>
-        <div className="container">
+        <div className="container basket-container">
           <div className="row">
             {displayBasket()}
           </div>
@@ -67,7 +67,9 @@ const Basket = (props) => {
               {getTotalPrice()}
             </div>
           </div>
-          <div className="btn btn-success checkout">Checkout</div>
+          <div className="checkout">
+            <div className="btn btn-success checkout-btn">Checkout</div>
+          </div>
         </div>
       </div>
     )

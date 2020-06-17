@@ -22,7 +22,7 @@ const EmptyMessage = ({ message, entity }) => {
 
 EmptyMessage.propTypes = {
   message: PropTypes.string.isRequired,
-  entity: PropTypes.string.isRequired
+  entity: PropTypes.string
 }
 
 export default EmptyMessage;
